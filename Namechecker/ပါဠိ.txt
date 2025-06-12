@@ -1,0 +1,135 @@
+Vowel
+final List<List<String>> data = [
+      ["အ\ta", "အာ\tā", "ဣ\ti", "ဤ\tī", "ဥ\tu", "ဦ\tū", "ဧ\te", "ဩ\to"]
+    ];
+
+
+pali_Consonant
+final List<List<String>> data = [
+      ["က\tka", "ခ\tkha", "ဂ\tga", "ဃ\tgha", "င\tṅa"],
+      ["စ\tca", "ဆ\tcha", "ဇ\tja", "ဈ\tjha", "ဉ\tña"],
+      ["ဋ\tṭa", "ဌ\tṭha", "ဍ\tḍa", "ဓ\tḍha", "ဏ\tṇa"],
+      ["တ\tta", "ထ\ttha", "ဒ\tda", "ဓ\tdha", "န\tna"],
+      ["ပ\tpa", "ဖ\tpha", "ဗ\tba", "ဘ\tbha", "မ\tma"],
+    ];
+
+palivowelConsonsnt
+final List<List<String>> data = [
+      ["ယ\tya", "ရ\tra", "လ\tla", "ဝ\tva", "သ\tsa", "ဟ\tha", "ဠ\tḷa", "အံ\tṃ"]
+    ];
+
+
+Palivowelcombination
+
+ final List<List<String>> data = [
+      [
+        "က\tka",
+        "ကာ\tkā",
+        "ကိ\tki",
+        "ကီ\tkī",
+        "ကု\tku",
+        "ကူ\tkū",
+        "ကေ\tke",
+        "ကော\tko"
+      ],
+      [
+        "ခ\tkha",
+        "ခါ\tkhā",
+        "ခိ\tkhi",
+        "ခီ\tkhī",
+        "ခု\tkhu",
+        "ခူ\tkhū",
+        "ခေ\tkhe",
+        "ခေါ\tkho"
+      ],
+    ];
+--------------------------
+Pali_conjunt_constant
+
+ final List<List<String>> data = [
+      ["က္က\tkka", "ဉ္စ\tñca", "ဒွ\tdva", "မ္ဗ\tmba"],
+      ["က္ခ\tkkha", "ဉ္ဆ\tñcha", "ဓျ\tdhya", "မ္ဘ\tmbha"],
+      ["ကျ\tkya", "ဉ္ဇ\tñja", "ဓွ\tdhva", "မ္မ\tmma"],
+      ["ကြိ\tkri", "ဉ္ဈ\tñjha", "န္တ\tnta", "မျ\tmya"],
+      ["က္လ\tkla", "ဋ္ဋ\tṭṭa", "န္တွ\tntva", "မှ\tmha"],
+      ["ကွ\tkva", "ဋ္ဌ\tṭṭha", "န္ထ\tntha", "ယျ\tyya"],
+      ["ချ\tkhya", "ဍ္ဍ\tḍḍa", "န္ဒ\tnda", "ယှ\tyha"],
+      ["ခွ\tkhva", "ဍ္ဎ\tḍḍh", "န္ဒြ\tndra", "လ္လ\tlla"],
+      ["ဂ္ဂ\tgga", "ဏ္ဋ\tṇṭa", "န္ဓ\tndha", "လျ\tlya"],
+      ["ဂ္ဂ\tggha", "ဏ္ဌ\tṇṭha", "န္န\tnna", "လှ\tlha"],
+      ["ဂျ\tgya", "ဏ္ဍ\tṇḍa", "နျ\tnya", "ဝှ\tvha"],
+      ["ဂြ\tgra", "ဏ္ဏ\tṇṇa", "နှ\tnha", "သ္ထ\tsta"],
+      ["င်္က\tṅka", "ဏှ\tṇha", "ပ္ပ\tppa", "သ္တြ\tstra"],
+      ["င်္ခ\tṅkha", "တ္တ\ttta", "ပ္ဖ\tppha", "သ္န\tsna"],
+      ["င်္ဂ\tṅga", "ထ္ထ\tttha", "ပျ\tpya", "သျ\tsya"],
+      ["င်္ဃ\tṅgha", "တွ\ttva", "ဗ္ဗ\tbba", "ဿ\tssa"],
+      ["စ္စ\tcca", "တျ\ttya", "ဗ္ဘ\tbbha", "သ္မ\tsma"],
+      ["စ္ဆ\tccha", "တြ\ttra", "ဗ္ဘ\tbbha", "သွ\tsva"],
+      ["ဇ္ဇ\tjja", "ဒ္ဒ\tdda", "ဗျ\tbya", "ဟ္မ\thma"],
+      ["ဇ္ဈ\tjjha", "ဒ္ဓ\tddha", "ဗြ\tbra", "ဟွ\thva"],
+      ["ည\tñña", "ဒျ\tdya", "မ္ပ\tmpa", "ဠ\tḷha"],
+      ["ဥှ\tñha", "ဒြ\tdra", "မ္ဖ\tmpha", ""]
+    ];
+--------------------------
+PaliExtra
+
+final List<List<String>> data = [
+      [
+        "ာ-ါ-\tā",
+        "ိ-\ti;",
+        " ီ–\tī;",
+        "ု-\tu;",
+        "ူ-\tu",
+        "‌ေ-\te",
+        "ော-‌ေါ-\to"
+      ],
+    ];
+-----------------------
+PaliNumber
+
+final List<List<String>> data = [
+      ["၁", "၂", "၃", "၄", "၅", "၆", "၇", "၈", "၉", "၀"],
+      ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
+    ];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

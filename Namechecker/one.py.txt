@@ -1,0 +1,13 @@
+def convert_name(word_dict):
+    mapped_names = ''
+
+    # Step 1: Preprocess
+    processed_text = preprocess(input_text)
+
+    word_list = processed_text.split(' ')
+    mapped_names = ' '.join(get_map(word, word_dict) for word in word_list)
+
+    input_code_point = ''.join(hex(ord(char)) for char in processed_text)
+    output_text = mapped_names.capitalize()
+
+    return input_code_point, output_text

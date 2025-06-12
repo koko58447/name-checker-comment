@@ -1,0 +1,342 @@
+def transcript(text: str) -> str:
+    output = []
+    i = 0
+
+    while i < len(text):
+        char = text[i]
+        next_char = text[i + 1] if i + 1 < len(text) else ""
+        after_next = text[i + 2] if i + 2 < len(text) else ""
+        third_next = text[i + 3] if i + 3 < len(text) else ""
+        all_but_s = text[1:] if len(text) > 1 else ""
+        all_but_sc = text[2:] if len(text) > 2 else ""
+        all_but_scc = text[3:] if len(text) > 3 else ""
+
+        # Your processing logic would go here
+        # For now, we'll just append the current character
+        output.append(char)
+        i += 1
+
+    return ''.join(output)
+   if (char in singleton and 
+    next in clusterForm and 
+    afterNext in clusterForm and 
+    allButSCC in asatExtendedForm):
+    if thirdNext == 'ှ':
+        if ('ျ' in next or 'ြ' in next) and char in modifyForm:
+            if 'ွ' in afterNext:
+                output.append(vowelForm[thirdNext] + 
+                             modifyForm[char] + 
+                             asatExtendedForm[allButSC])
+            else:
+                output.append(vowelForm[thirdNext] + 
+                             modifyForm[char] + 
+                             clusterForm[afterNext] + 
+                             asatExtendedForm[allButSCC])
+        else:
+    if 'ွ' in afterNext:
+        output.append(
+            vowel_form[thirdNext] +
+            singleton[char] +
+            cluster_form[next] +
+            asat_extended_form[allButSC]
+        )
+    else:
+        output.append(
+            vowel_form[thirdNext] +
+            singleton[char] +
+            cluster_form[next] +
+            cluster_form[afterNext] +
+            asat_extended_form[allButSCC]
+        )
+else:
+    if ('ျ' in next or 'ြ' in next) and char in modify_form:
+        if 'ွ' in after_next:
+            output.append(modify_form[char] + asat_extended_form[all_but_sc])
+        else:
+            output.append(singleton[char] + 
+                         cluster_form[next] + 
+                         cluster_form[after_next] + 
+                         asat_extended_form[all_but_scc])
+    else:
+        if 'ွ' in after_next:
+            output.append(singleton[char] + 
+                         cluster_form[next] + 
+                         asat_extended_form[all_but_sc])
+        else:
+            output.append(singleton[char] + 
+                         cluster_form[next] + 
+                         cluster_form[after_next] + 
+                         asat_extended_form[all_but_scc])
+    i += 3 + len(all_but_scc)
+    # debug_print('rule 4.2: Singleton + Cluster + Cluster + AsatExtendedForm')
+
+elif (char in singleton and 
+      next in clusterForm and 
+      allButSC in asatExtendedForm):
+    if afterNext == 'ှ':
+        if 'ွ' in next:
+            if 'ရ' in char:
+                output.append(f'sh{asatExtendedForm[allButS]}')
+            else:
+                output.append(vowelForm[afterNext] + 
+                            singleton[char] + 
+                            asatExtendedForm[allButS])
+        elif ('ျ' in next or 'ြ' in next) and char in modifyForm:
+            output.append(f'{vowelForm[afterNext]}{modifyForm[char]}{asatExtendedForm[allButSC]}')
+        else:
+            output.append(vowelForm[afterNext] + 
+                        singleton[char] + 
+                        clusterForm[next] + 
+                        asatExtendedForm[allButSC])
+        i += 3 + len(allButSC)
+    else:
+        if 'ွ' in next:
+            output.append(singleton[char] + asatExtendedForm[allButS])
+        elif ('ျ' in next or 'ြ' in next) and char in modifyForm:
+            output.append(f'{modifyForm[char]}{asatExtendedForm[allButSC]}')
+        else:
+            output.append(singleton[char] + 
+                        clusterForm[next] + 
+                        asatExtendedForm[allButSC])
+        i += 2 + len(allButSC)
+    # print('rule 4.1: Singleton + Cluster + AsatExtendedForm')
+
+# Rule 4.0: Singleton + AsatExtendedForm
+elif (char in singleton and 
+      allButS in asatExtendedForm):
+    if next == 'ှ':
+        if 'ရ' in char:
+            output.append(f'sh{asatExtendedForm[allButS]}')
+        else:
+            output.append(vowelForm[next] + 
+                        singleton[char] + 
+                        asatExtendedForm[allButS])
+        i += 2 + len(allButS)
+    else:
+        output.append(f"{singleton[char]}{asatExtendedForm[allButS]}")
+        i += 1 + len(allButS)
+    # print('rule 4.0: Singleton + AsatExtendedForm')
+if (char in singleton and 
+    next in clusterForm and 
+    after_next in clusterForm and 
+    all_but_scc in vowelExtendedForm):
+    if third_next == 'ှ':
+        if ('ျ' in next or 'ြ' in next) and char in modifyForm:
+            output.append(
+                f"{vowelForm[third_next]}{modifyForm[char]}{clusterForm[after_next]}{vowelExtendedForm[all_but_scc]}")
+        else:
+            output.append(
+                f"{vowelForm[third_next]}{singleton[char]}{clusterForm[next]}{clusterForm[after_next]}{vowelExtendedForm[all_but_scc]}")
+        i += 3 + len(all_but_scc)
+    else:
+        if ('ျ' in next or 'ြ' in next) and char in modifyForm:
+            output.append(modifyForm[char] + 
+                         clusterForm[after_next] + 
+                         vowelExtendedForm[all_but_scc])
+        else:
+            output.append(singleton[char] + 
+                         clusterForm[next] + 
+                         clusterForm[after_next] + 
+                         vowelExtendedForm[all_but_scc])
+        i += 3 + len(all_but_scc)
+    # debugPrint('rule 3.1: Singleton + Cluster + Cluster + Extended')
+
+# Rule 3.0: Singleton + Cluster + Cluster + Vowel
+elif (char in singleton and 
+      next in clusterForm and 
+      after_next in clusterForm):
+    if third_next in vowelForm:
+        if third_next == 'ှ':
+            if ('ျ' in next or 'ြ' in next) and char in modifyForm:
+                output.append(
+                    f"{vowelForm[third_next]}{modifyForm[char]}{clusterForm[after_next]}a")
+            else:
+                output.append(
+                    f"{vowelForm[third_next]}{singleton[char]}{clusterForm[next]}{clusterForm[after_next]}a")
+        else:
+            if ('ျ' in next or 'ြ' in next) and char in modifyForm:
+                output.append(modifyForm[char] + 
+                             clusterForm[after_next] + 
+                             vowelForm[third_next])
+            else:
+                output.append(singleton[char] + 
+                              clusterForm[next] + 
+                              clusterForm[after_next] + 
+                              vowelForm[third_next])
+        i += 4
+    else:
+        if ('ျ' in next or 'ြ' in next) and char in modifyForm:
+            output.append(f"{modifyForm[char]}{clusterForm[after_next]}a")
+        else:
+            output.append(
+                f"{singleton[char]}{clusterForm[next]}{clusterForm[after_next]}a")
+        i += 3
+    # debugPrint('rule 3.0: Singleton + Cluster + Cluster + Vowel')
+elif (char in singleton and 
+      next in clusterForm and 
+      allButSC in vowelExtendedForm):
+    if afterNext == 'ှ':
+        if (('ျ' in next or 'ြ' in next) and 
+            char in modifyForm):
+            output.append(vowelForm[afterNext] + 
+                          modifyForm[char] + 
+                          vowelExtendedForm[allButSC])
+        else:
+            if 'ရ' in char:
+                output.append(f'sh{clusterForm[next]}{vowelExtendedForm[allButSC]}')
+            else:
+                output.append(vowelForm[afterNext] + 
+                             singleton[char] + 
+                             clusterForm[next] + 
+                             vowelExtendedForm[allButSC])
+        i += 2 + len(allButSC)
+    else:
+        if (('ျ' in next or 'ြ' in next) and 
+            char in modifyForm):
+            output.append(modifyForm[char] + vowelExtendedForm[allButSC])
+        else:
+            output.append(singleton[char] + 
+                          clusterForm[next] + 
+                          vowelExtendedForm[allButSC])
+        i += 2 + len(allButSC)
+    # debugPrint('rule 2.1: Singleton + Cluster + Vowel Extended')
+
+# Rule 2.0: Singleton + Cluster + Vowel
+elif (char in singleton and next in clusterForm):
+    if afterNext in vowelForm:
+        if afterNext == 'ှ':
+            if (('ျ' in next or 'ြ' in next) and 
+                char in modifyForm):
+                output.append(f'{vowelForm[afterNext]}{modifyForm[char]}a')
+            else:
+                if 'ရ' in char:
+                    output.append(f'sh{clusterForm[next]}a')
+                else:
+                    output.append(f'{vowelForm[afterNext]}{singleton[char]}{clusterForm[next]}a')
+        else:
+            if (('ျ' in next or 'ြ' in next) and 
+                char in modifyForm):
+                output.append(modifyForm[char] + vowelForm[afterNext])
+            else:
+                output.append(singleton[char] + 
+                             clusterForm[next] + 
+                             vowelForm[afterNext])
+        i += 3
+    else:
+        if (('ျ' in next or 'ြ' in next) and 
+            char in modifyForm):
+            output.append(f'{modifyForm[char]}a')
+        else:
+            output.append(f'{singleton[char]}{clusterForm[next]}a')
+        i += 2
+    # debugPrint('rule 2.0: Singleton + Cluster + Vowel')
+
+def process_text(input_text, singleton, vowel_extended_form, vowel_form, special_chars_form):
+    output = []
+    i = 0
+    n = len(input_text)
+    
+    while i < n:
+        char = input_text[i]
+        next_char = input_text[i+1] if i+1 < n else None
+        all_but_s = input_text[i+1:i+1+2] if i+1+2 <= n else None  # Assuming allButS is 2 chars long
+        
+        # Rule 1.1: Singleton + Vowel Extended Forms
+        if char in singleton and all_but_s in vowel_extended_form:
+            if next_char == 'ှ':
+                if 'ရ' in char:
+                    output.append(f"sh{vowel_extended_form[all_but_s]}")
+                else:
+                    output.append(f"{vowel_form[next_char]}{singleton[char]}{vowel_extended_form[all_but_s]}")
+                i += 1 + len(all_but_s)
+            else:
+                output.append(f"{singleton[char]}{vowel_extended_form[all_but_s]}")
+                i += 1 + len(all_but_s)
+            # print('rule 1.1: Singleton + Vowel Extended Forms')
+        
+        # Rule 1.0: Singleton + Vowel (base)
+        elif char in singleton:
+            if next_char in vowel_form:
+                if next_char == 'ှ':
+                    if 'ရ' in char:
+                        output.append('sha')
+                    else:
+                        output.append(f"{vowel_form[next_char]}{singleton[char]}a")
+                else:
+                    output.append(f"{singleton[char]}{vowel_form[next_char]}")
+                i += 2
+            else:
+                if 'အ' in char:
+                    output.append("ah")
+                else:
+                    output.append(f"{singleton[char]}a")
+                i += 1
+            # print('rule 1.0: Singleton + Vowel (base)')
+        
+        # Rule 0.1: Special Character Form
+        elif char in special_chars_form:
+            output.append(special_chars_form[char])
+            i += 1
+            # print('rule 0.1: Special Character Form')
+        
+        # Rule 0.0: Default - just append
+        else:
+            output.append(char)
+            i += 1
+            # print('rule 0.0: Default')
+    
+    return ''.join(output)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
