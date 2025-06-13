@@ -824,7 +824,7 @@ vowel_extended_form = {
     "\u1031\u102c\u1037": "awt",  # ကော့
     "\u103e\u1031\u102c\u1037": "awt",  # ကှော့
     "\u1031\u102b\u1037": "awt",  # ခေါ့
-    "\u103e\u1031\u102b\u1037": "awt"  # ခှေါ့
+    "\u103e\u1031\u102b\u1037": "awt",  # ခှေါ့
     "ာ့": "a",
     "ှာ့": "a",
     "ါ့": "a",
@@ -904,42 +904,42 @@ def transcript(text: str) -> str:
                                 clusterForm[afterNext] + 
                                 asatExtendedForm[allButSCC])
             else:
-        if 'ွ' in afterNext:
-            output.append(
-                vowel_form[thirdNext] +
-                singleton[char] +
-                cluster_form[next] +
-                asat_extended_form[allButSC]
-            )
+                if 'ွ' in afterNext:
+                    output.append(
+                        vowel_form[thirdNext] +
+                        singleton[char] +
+                        cluster_form[next] +
+                        asat_extended_form[allButSC]
+                    )
+                else:
+                    output.append(
+                        vowel_form[thirdNext] +
+                        singleton[char] +
+                        cluster_form[next] +
+                        cluster_form[afterNext] +
+                        asat_extended_form[allButSCC]
+                    )
         else:
-            output.append(
-                vowel_form[thirdNext] +
-                singleton[char] +
-                cluster_form[next] +
-                cluster_form[afterNext] +
-                asat_extended_form[allButSCC]
-            )
-    else:
-        if ('ျ' in next or 'ြ' in next) and char in modify_form:
-            if 'ွ' in after_next:
-                output.append(modify_form[char] + asat_extended_form[all_but_sc])
+            if ('ျ' in next or 'ြ' in next) and char in modify_form:
+                if 'ွ' in after_next:
+                    output.append(modify_form[char] + asat_extended_form[all_but_sc])
+                else:
+                    output.append(singleton[char] + 
+                                cluster_form[next] + 
+                                cluster_form[after_next] + 
+                                asat_extended_form[all_but_scc])
             else:
-                output.append(singleton[char] + 
-                            cluster_form[next] + 
-                            cluster_form[after_next] + 
-                            asat_extended_form[all_but_scc])
-        else:
-            if 'ွ' in after_next:
-                output.append(singleton[char] + 
-                            cluster_form[next] + 
-                            asat_extended_form[all_but_sc])
-            else:
-                output.append(singleton[char] + 
-                            cluster_form[next] + 
-                            cluster_form[after_next] + 
-                            asat_extended_form[all_but_scc])
-        i += 3 + len(all_but_scc)
-        # debug_print('rule 4.2: Singleton + Cluster + Cluster + AsatExtendedForm')
+                if 'ွ' in after_next:
+                    output.append(singleton[char] + 
+                                cluster_form[next] + 
+                                asat_extended_form[all_but_sc])
+                else:
+                    output.append(singleton[char] + 
+                                cluster_form[next] + 
+                                cluster_form[after_next] + 
+                                asat_extended_form[all_but_scc])
+            i += 3 + len(all_but_scc)
+            # debug_print('rule 4.2: Singleton + Cluster + Cluster + AsatExtendedForm')
 
     elif (char in singleton and 
         next in clusterForm and 
