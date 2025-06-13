@@ -26,7 +26,7 @@ if 'clear_text' not in st.session_state:
     st.session_state.clear_text = False
 
 st.set_page_config(
-    page_title="အမျိုးသားဉာဏ်ရည်တုနည်းပညာဖွံ့ဖြိုးတိုးတက်ရေးစီမံကိန်း",
+    page_title="MLLIP Name Checker",
     page_icon="🎙️",
     layout="wide",
   
@@ -175,14 +175,11 @@ if st.session_state.user:
     if st.sidebar.button("Logout"):
         st.session_state.user = None
         st.rerun()
-    
-with st.sidebar:
-          
-    st.page_link("pages/about.py", label="About", icon="1️⃣")
-    st.page_link("pages/myanmar_about.py", label="Page 2", icon="2️⃣",)
-    st.page_link("http://www.google.com", label="Google", icon="🌎")
-                
-    
+    if st.sidebar.button("အကြောင်းအရာ"):
+        st.page_link("pages/home.py", label="Home", icon="🏠")
+        
+    st.sidebar.button("မြန်မာအညွှန်း")
+    st.sidebar.button("ပါ")
     
     st.subheader("🗨️ Comments")
     display_comments()

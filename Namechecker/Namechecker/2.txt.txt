@@ -1,0 +1,29 @@
+def convert_pali_to_roman(word_dict, input_text):
+    # Step 1: Preprocess
+    processed_text = preprocess(input_text)
+    
+    # Split into words
+    word_list = processed_text.split(' ')
+    
+    # Map each word using the dictionary
+    mapped_string = ' '.join([word_dict.get(word, word) for word in word_list])
+    
+    # Debug print (in Python this would typically be print or logging)
+    print(mapped_string)
+    
+    # Equivalent of setState functionality
+    # In Python, we would typically return values or modify object attributes
+    input_code_point = [hex(ord(char)) for char in input_text]
+    output_text = mapped_string
+    
+    # Return the results (since Python doesn't have setState)
+    return {
+        'input_code_point': input_code_point,
+        'output_text': output_text
+    }
+
+# Note: The preprocess() function would need to be defined separately
+# Example usage:
+# word_dict = {"pali_word": "roman_word"}
+# result = convert_pali_to_roman(word_dict, "input text here")
+# print(result)
